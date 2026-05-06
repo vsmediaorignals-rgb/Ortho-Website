@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Aryan Mehta — Orthopedic Surgeon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Syne:wght@400;500;700&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ==================== NAV ==================== -->
+  <nav class="nav">
+    <div class="nav-logo">Dr. A. Mehta <span>MD, FRCS</span></div>
+    <ul class="nav-links">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Research</a></li>
+      <li><a href="#" class="nav-cta">Book Consultation</a></li>
+    </ul>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero">
+
+    <!-- LEFT: Text -->
+    <div class="hero-text">
+      <p class="hero-tag">Orthopedic Excellence</p>
+      <h1 class="hero-heading">
+        Restoring<br />
+        <em>Motion,</em><br />
+        Rebuilding<br />Life.
+      </h1>
+      <p class="hero-subtext">
+        Explore the human body below. Click any joint or region
+        to discover specialized treatments, diagnostics, and surgical options.
+      </p>
+      <div class="hero-stats">
+        <div class="stat"><span>2,400+</span><small>Surgeries</small></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span>18 Yrs</span><small>Experience</small></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span>98%</span><small>Satisfaction</small></div>
+      </div>
+      <button class="btn-primary"
+        onclick="document.querySelector('.hero-skeleton').scrollIntoView({behavior:'smooth'})">
+        Explore the Body →
+      </button>
+    </div>
+
+    <!-- CENTER: Skeleton -->
+    <div class="hero-skeleton">
+      <div class="skeleton-hint">Click on any highlighted joint</div>
+      <div class="skeleton-wrapper">
+        <!-- Layer 1: The real skeleton image -->
+        <img src="skeleton.png" alt="Human skeleton" class="skeleton-img" />
+
+        <!-- Layer 2: Veins removed (For realism, overlay a transparent PNG or accurate Figma SVG here) -->
+
+        <!-- Layer 3: Hotspots SVG (transparent, sits on top) -->
+        <svg class="hotspots-overlay" viewBox="0 0 340 720" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="orbGlow" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur stdDeviation="6" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <radialGradient id="orbGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#ff6655" stop-opacity="1" />
+              <stop offset="25%" stop-color="#ee3333" stop-opacity="0.7" />
+              <stop offset="55%" stop-color="#cc1111" stop-opacity="0.35" />
+              <stop offset="80%" stop-color="#991111" stop-opacity="0.12" />
+              <stop offset="100%" stop-color="#660000" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+
+          <!-- Left Shoulder -->
+          <g class="hotspot" data-part="left-shoulder" tabindex="0" role="button" aria-label="Left Shoulder joint">
+            <circle cx="110" cy="149" r="18" fill="url(#orbGrad)" filter="url(#orbGlow)" class="hotspot-orb" />
+          </g>
+          <!-- Right Shoulder -->
+          <g class="hotspot" data-part="right-shoulder" tabindex="0" role="button" aria-label="Right Shoulder joint">
+            <circle cx="242" cy="149" r="18" fill="url(#orbGrad)" filter="url(#orbGlow)" class="hotspot-orb" />
+          </g>
+          <!-- Spine (Lumbar) -->
+          <g class="hotspot" data-part="spine" tabindex="0" role="button" aria-label="Spine and Lumbar region">
+            <circle cx="173" cy="256" r="18" fill="url(#orbGrad)" filter="url(#orbGlow)" class="hotspot-orb" />
+          </g>
+          <!-- Left Hip -->
+          <g class="hotspot" data-part="left-hip" tabindex="0" role="button" aria-label="Left Hip joint">
+            <circle cx="135" cy="360" r="20" fill="url(#orbGrad)" filter="url(#orbGlow)" class="hotspot-orb" />
+          </g>
+          <!-- Right Hip -->
+          <g class="hotspot" data-part="right-hip" tabindex="0" role="button" aria-label="Right Hip joint">
+            <circle cx="210" cy="360" r="20" fill="url(#orbGrad)" filter="url(#orbGlow)" class="hotspot-orb" />
+          </g>
+          <!-- Left Knee -->
+          <g class="hotspot" data-part="left-knee" tabindex="0" role="button" aria-label="Left Knee joint">
+            <circle cx="135" cy="530" r="20" fill="url(#orbGrad)" filter="url(#orbGlow)" class="hotspot-orb" />
+          </g>
+          <!-- Right Knee -->
+          <g class="hotspot" data-part="right-knee" tabindex="0" role="button" aria-label="Right Knee joint">
+            <circle cx="215" cy="530" r="20" fill="url(#orbGrad)" filter="url(#orbGlow)" class="hotspot-orb" />
+          </g>
+          <!-- Left Ankle -->
+          <g class="hotspot" data-part="left-ankle" tabindex="0" role="button" aria-label="Left Ankle joint">
+            <circle cx="135" cy="680" r="18" fill="url(#orbGrad)" filter="url(#orbGlow)" class="hotspot-orb" />
+          </g>
+          <!-- Right Ankle -->
+          <g class="hotspot" data-part="right-ankle" tabindex="0" role="button" aria-label="Right Ankle joint">
+            <circle cx="215" cy="680" r="18" fill="url(#orbGrad)" filter="url(#orbGlow)" class="hotspot-orb" />
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- RIGHT: Info Panel (initially hidden) -->
+    <div class="info-panel" id="infoPanel">
+      <div class="panel-inner">
+        <button class="panel-close" id="closePanel" aria-label="Close panel">✕</button>
+        <div class="panel-icon" id="panelIcon">🦴</div>
+        <h2 class="panel-title" id="panelTitle">Joint Name</h2>
+        <div class="panel-badge" id="panelBadge">Orthopedic Focus</div>
+
+        <div class="panel-section">
+          <h3>Common Conditions</h3>
+          <ul class="panel-list" id="panelConditions"></ul>
+        </div>
+
+        <div class="panel-section">
+          <h3>Diagnostic Methods</h3>
+          <ul class="panel-list" id="panelDiag"></ul>
+        </div>
+
+        <div class="panel-section">
+          <h3>Treatment Options</h3>
+          <div class="treatment-grid" id="panelTreatments"></div>
+        </div>
+
+        <button class="btn-consult">Schedule Consultation →</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ==================== PANEL OVERLAY ==================== -->
+  <div class="overlay" id="overlay"></div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
