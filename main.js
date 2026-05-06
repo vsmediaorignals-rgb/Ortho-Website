@@ -6,7 +6,7 @@ const bodyPartData = {
     title: "Left Shoulder",
     icon: "🦾",
     badge: "Glenohumeral Joint",
-    svgX: 113, svgY: 126,
+    svgX: 110, svgY: 149,
     conditions: [
       "Rotator cuff tear (partial or full-thickness)",
       "Shoulder impingement syndrome",
@@ -33,7 +33,7 @@ const bodyPartData = {
     title: "Right Shoulder",
     icon: "🦾",
     badge: "Glenohumeral Joint",
-    svgX: 227, svgY: 126,
+    svgX: 242, svgY: 149,
     conditions: [
       "Rotator cuff tear (partial or full-thickness)",
       "Shoulder impingement syndrome",
@@ -60,7 +60,7 @@ const bodyPartData = {
     title: "Spine / Lumbar",
     icon: "🦴",
     badge: "Vertebral Column",
-    svgX: 170, svgY: 256,
+    svgX: 173, svgY: 256,
     conditions: [
       "Lumbar disc herniation (L4-L5, L5-S1)",
       "Spinal stenosis",
@@ -87,7 +87,7 @@ const bodyPartData = {
     title: "Left Hip",
     icon: "🦿",
     badge: "Hip Joint",
-    svgX: 127, svgY: 352,
+    svgX: 135, svgY: 360,
     conditions: [
       "Hip osteoarthritis (end-stage)",
       "Femoroacetabular impingement (FAI)",
@@ -114,7 +114,7 @@ const bodyPartData = {
     title: "Right Hip",
     icon: "🦿",
     badge: "Hip Joint",
-    svgX: 213, svgY: 352,
+    svgX: 210, svgY: 360,
     conditions: [
       "Hip osteoarthritis (end-stage)",
       "Femoroacetabular impingement (FAI)",
@@ -141,7 +141,7 @@ const bodyPartData = {
     title: "Left Knee",
     icon: "🦵",
     badge: "Tibiofemoral Joint",
-    svgX: 104, svgY: 508,
+    svgX: 135, svgY: 530,
     conditions: [
       "ACL rupture (anterior cruciate ligament)",
       "Meniscus tear (medial / lateral)",
@@ -168,7 +168,7 @@ const bodyPartData = {
     title: "Right Knee",
     icon: "🦵",
     badge: "Tibiofemoral Joint",
-    svgX: 236, svgY: 508,
+    svgX: 215, svgY: 530,
     conditions: [
       "ACL rupture (anterior cruciate ligament)",
       "Meniscus tear (medial / lateral)",
@@ -195,7 +195,7 @@ const bodyPartData = {
     title: "Left Ankle",
     icon: "🦶",
     badge: "Talocrural Joint",
-    svgX: 96, svgY: 640,
+    svgX: 135, svgY: 680,
     conditions: [
       "Ankle ligament sprain (ATFL, CFL)",
       "Ankle osteoarthritis",
@@ -222,7 +222,7 @@ const bodyPartData = {
     title: "Right Ankle",
     icon: "🦶",
     badge: "Talocrural Joint",
-    svgX: 244, svgY: 640,
+    svgX: 215, svgY: 680,
     conditions: [
       "Ankle ligament sprain (ATFL, CFL)",
       "Ankle osteoarthritis",
@@ -297,13 +297,18 @@ function zoomToBodyPart(partKey) {
   // 3. Calculate zoom — use transform-origin so the skeleton
   //    scales vertically from the hotspot point (to keep it in view),
   //    but horizontally from the center (so the body expands symmetrically).
+  //    ON MOBILE: anchor entirely to the hotspot, otherwise it overflows off-screen!
   const originX = (data.svgX / SVG_VB_W) * 100;
   const originY = (data.svgY / SVG_VB_H) * 100;
 
-  skeletonWrapper.style.transformOrigin = `50% ${originY}%`;
+  const isMobile = window.innerWidth <= 1100;
+  if (isMobile) {
+    skeletonWrapper.style.transformOrigin = `${originX}% ${originY}%`;
+  } else {
+    skeletonWrapper.style.transformOrigin = `50% ${originY}%`;
+  }
   
   // Translate to the left (into empty text space) and scale up smoothly
-  const isMobile = window.innerWidth <= 1100;
   const translateX = isMobile ? '0px' : '-22vw';
   skeletonWrapper.style.transform = `translate(${translateX}, 0) scale(2.2)`;
 
@@ -316,6 +321,7 @@ function zoomToBodyPart(partKey) {
   setTimeout(() => {
     populatePanel(partKey);
     infoPanel.classList.add('active');
+    if (isMobile) overlay.classList.add('active');
     isAnimating = false;
   }, ZOOM_SPEED * 0.4);
 }
@@ -351,6 +357,7 @@ function zoomOut() {
 
   // 1. Hide the info panel first
   infoPanel.classList.remove('active');
+  overlay.classList.remove('active');
 
   // 2. Reset skeleton zoom (smooth via CSS transition)
   skeletonWrapper.style.transform = 'translate(0px, 0px) scale(1)';
@@ -450,6 +457,11 @@ hero.addEventListener('click', (e) => {
   // Only zoom out if the click is NOT inside the info panel or a hotspot
   if (e.target.closest('.info-panel') || e.target.closest('.hotspot')) return;
   zoomOut();
+});
+
+// Click the overlay to close on mobile
+overlay.addEventListener('click', () => {
+  if (isZoomed) zoomOut();
 });
 
 // Escape key
