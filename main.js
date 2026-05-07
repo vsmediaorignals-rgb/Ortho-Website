@@ -254,6 +254,7 @@ const heroText        = document.querySelector('.hero-text');
 const heroSkeleton    = document.querySelector('.hero-skeleton');
 const skeletonWrapper = document.querySelector('.skeleton-wrapper');
 const skeletonHint    = document.querySelector('.skeleton-hint');
+const doctorCard      = document.getElementById('doctorCard');
 const infoPanel       = document.getElementById('infoPanel');
 const overlay         = document.getElementById('overlay');
 const closeBtn        = document.getElementById('closePanel');
@@ -288,8 +289,9 @@ function zoomToBodyPart(partKey) {
   isZoomed = true;
   activePartKey = partKey;
 
-  // 1. Slide hero text out to the left
+  // 1. Slide hero text out to the left, doctor card out to the right
   heroText.classList.add('slide-out-left');
+  if (doctorCard) doctorCard.classList.add('slide-out-right');
 
   // 2. Hide the skeleton hint
   skeletonHint.classList.add('hidden');
@@ -362,8 +364,9 @@ function zoomOut() {
   // 2. Reset skeleton zoom (smooth via CSS transition)
   skeletonWrapper.style.transform = 'translate(0px, 0px) scale(1)';
 
-  // 3. Bring hero text back (smooth via CSS transition)
+  // 3. Bring hero text and doctor card back (smooth via CSS transition)
   heroText.classList.remove('slide-out-left');
+  if (doctorCard) doctorCard.classList.remove('slide-out-right');
 
   // 5. Show hint again
   skeletonHint.classList.remove('hidden');
