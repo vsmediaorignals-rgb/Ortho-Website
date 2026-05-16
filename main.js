@@ -289,6 +289,9 @@ function zoomToBodyPart(partKey) {
   isZoomed = true;
   activePartKey = partKey;
 
+  // Lock page scroll so only the info panel scrolls
+  document.body.style.overflow = 'hidden';
+
   // 1. Slide hero text out to the left, doctor card out to the right
   heroText.classList.add('slide-out-left');
   if (doctorCard) doctorCard.classList.add('slide-out-right');
@@ -360,6 +363,9 @@ function zoomOut() {
   // 1. Hide the info panel first
   infoPanel.classList.remove('active');
   overlay.classList.remove('active');
+
+  // Unlock page scroll
+  document.body.style.overflow = '';
 
   // 2. Reset skeleton zoom (smooth via CSS transition)
   skeletonWrapper.style.transform = 'translate(0px, 0px) scale(1)';
@@ -477,3 +483,131 @@ document.addEventListener('keydown', e => {
 // =============================================
 console.log('%c🦴 Ortho Hero Section | Built for VS Code', 'color:#00c9a7;font-size:14px;font-weight:bold;');
 console.log('%cAdd body parts in main.js → bodyPartData object', 'color:#8ea8cc;font-size:12px;');
+
+// =============================================
+//  HAMBURGER MENU
+// =============================================
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('open');
+  });
+
+  // Close menu when a link is clicked
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
+    });
+  });
+}
+
+// =============================================
+//  SMOOTH SCROLL FOR NAV LINKS
+// =============================================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', (e) => {
+    const target = document.querySelector(anchor.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = 80; // nav height
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+// =============================================
+//  SCROLL REVEAL (Intersection Observer)
+// =============================================
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      // Stagger the animation for multiple items
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, i * 100);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// =============================================
+//  TESTIMONIAL CAROUSEL
+// =============================================
+const track = document.getElementById('testimonialTrack');
+const dots = document.querySelectorAll('#carouselDots .dot');
+const prevBtn = document.getElementById('carouselPrev');
+const nextBtn = document.getElementById('carouselNext');
+let currentSlide = 0;
+const totalSlides = dots.length;
+let carouselInterval;
+
+function goToSlide(index) {
+  currentSlide = ((index % totalSlides) + totalSlides) % totalSlides;
+  if (track) track.style.transform = `translateX(-${currentSlide * 100}%)`;
+  dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+}
+
+function startCarousel() {
+  carouselInterval = setInterval(() => goToSlide(currentSlide + 1), 5000);
+}
+
+function resetCarousel() {
+  clearInterval(carouselInterval);
+  startCarousel();
+}
+
+if (prevBtn) prevBtn.addEventListener('click', () => { goToSlide(currentSlide - 1); resetCarousel(); });
+if (nextBtn) nextBtn.addEventListener('click', () => { goToSlide(currentSlide + 1); resetCarousel(); });
+dots.forEach((dot, i) => dot.addEventListener('click', () => { goToSlide(i); resetCarousel(); }));
+
+startCarousel();
+
+// =============================================
+//  COUNTER ANIMATION
+// =============================================
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      const duration = 2000;
+      const start = performance.now();
+
+      function update(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        el.textContent = Math.floor(eased * target).toLocaleString();
+        if (progress < 1) requestAnimationFrame(update);
+        else el.textContent = target.toLocaleString();
+      }
+      requestAnimationFrame(update);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+// =============================================
+//  BACK TO TOP BUTTON
+// =============================================
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+  if (backToTop) {
+    backToTop.classList.toggle('visible', window.scrollY > 600);
+  }
+}, { passive: true });
+
+if (backToTop) {
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}

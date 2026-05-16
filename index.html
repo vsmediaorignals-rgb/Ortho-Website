@@ -18,11 +18,14 @@
   <!-- ==================== NAV ==================== -->
   <nav class="nav">
     <div class="nav-logo">Dr. A. Mehta <span>MD, FRCS</span></div>
-    <ul class="nav-links">
-      <li><a href="#">About</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">Research</a></li>
-      <li><a href="#" class="nav-cta">Book Consultation</a></li>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#contact" class="nav-cta">Book Consultation</a></li>
     </ul>
   </nav>
 
@@ -180,6 +183,338 @@
     </div>
 
   </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section class="section about" id="about">
+    <div class="section-grid-bg"></div>
+    <div class="section-inner about-grid">
+      <div class="about-text reveal">
+        <p class="section-tag">About the Surgeon</p>
+        <h2 class="section-heading">Precision <em>Meets</em> Compassion</h2>
+        <p class="section-body">
+          Dr. Aryan Mehta is a board-certified orthopedic surgeon with over 18 years of experience
+          in joint replacement, minimally invasive arthroscopy, and complex trauma reconstruction.
+          He trained at AIIMS New Delhi and completed fellowships at the Royal College of Surgeons,
+          London, specialising in robotic-assisted arthroplasty.
+        </p>
+        <p class="section-body">
+          His patient-first philosophy combines cutting-edge surgical techniques with
+          evidence-based rehabilitation protocols, resulting in a 98% patient satisfaction rate
+          and consistently shorter recovery times.
+        </p>
+        <div class="about-credentials">
+          <div class="credential-chip">AIIMS New Delhi</div>
+          <div class="credential-chip">FRCS London</div>
+          <div class="credential-chip">Robotic Surgery</div>
+          <div class="credential-chip">Sports Medicine</div>
+        </div>
+      </div>
+      <div class="about-timeline reveal">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">2006</span>
+              <h4>MBBS — AIIMS New Delhi</h4>
+              <p>Gold medalist in Anatomy & Orthopaedics</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">2010</span>
+              <h4>MS Orthopaedics — AIIMS</h4>
+              <p>Specialised in joint reconstruction and trauma</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">2013</span>
+              <h4>FRCS — Royal College of Surgeons</h4>
+              <p>Fellowship in robotic arthroplasty, London</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">2016</span>
+              <h4>Head of Orthopaedics — Max Healthcare</h4>
+              <p>Led the first robotic knee replacement program in Delhi</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">2024</span>
+              <h4>2,400+ Successful Surgeries</h4>
+              <p>Nationally recognised for excellence in joint replacement</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICES ==================== -->
+  <section class="section services" id="services">
+    <div class="section-grid-bg"></div>
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <p class="section-tag">Specialisations</p>
+        <h2 class="section-heading">Expert <em>Orthopedic</em> Care</h2>
+        <p class="section-subtitle">Comprehensive treatment options backed by 18 years of surgical excellence</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon">🦿</div>
+          <h3>Joint Replacement</h3>
+          <p>Total and partial knee & hip replacements using robotic-assisted navigation for unmatched precision and faster recovery.</p>
+          <span class="service-tag">2,400+ procedures</span>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">🔬</div>
+          <h3>Arthroscopy</h3>
+          <p>Minimally invasive keyhole surgery for ACL reconstruction, meniscus repair, rotator cuff, and labral tears.</p>
+          <span class="service-tag">Minimally invasive</span>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">🦴</div>
+          <h3>Spine Surgery</h3>
+          <p>Microdiscectomy, spinal fusion, laminectomy, and kyphoplasty for herniated discs, stenosis, and deformities.</p>
+          <span class="service-tag">Advanced techniques</span>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">⚡</div>
+          <h3>Sports Medicine</h3>
+          <p>Specialised care for athletes — ligament reconstruction, tendon repair, and performance rehabilitation programs.</p>
+          <span class="service-tag">Athletes' choice</span>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">🏥</div>
+          <h3>Trauma & Fractures</h3>
+          <p>Emergency and elective fracture fixation, polytrauma management, and complex revision surgeries.</p>
+          <span class="service-tag">24/7 available</span>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">👶</div>
+          <h3>Pediatric Orthopedics</h3>
+          <p>Congenital deformity correction, clubfoot treatment, growth plate injuries, and scoliosis management for children.</p>
+          <span class="service-tag">Child-friendly care</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section class="section testimonials">
+    <div class="section-grid-bg"></div>
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <p class="section-tag">Patient Stories</p>
+        <h2 class="section-heading">Trusted by <em>Thousands</em></h2>
+      </div>
+      <div class="testimonial-carousel" id="testimonialCarousel">
+        <div class="testimonial-track" id="testimonialTrack">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Dr. Mehta performed my total knee replacement, and within 8 weeks I was walking without support. His precision and post-op care are unmatched. I wish I had done this sooner."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">RP</div>
+              <div>
+                <span class="author-name">Rajesh Patel</span>
+                <span class="author-procedure">Total Knee Replacement</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"After my ACL injury, I thought my cricket career was over. Dr. Mehta reconstructed my ACL arthroscopically and had me back on the pitch in 6 months. Truly a miracle worker."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">AS</div>
+              <div>
+                <span class="author-name">Ankit Sharma</span>
+                <span class="author-procedure">ACL Reconstruction</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"My mother had severe hip arthritis and could barely walk. Dr. Mehta's robotic hip replacement gave her a new life. She is now pain-free and independent at 72."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">NK</div>
+              <div>
+                <span class="author-name">Neha Kapoor</span>
+                <span class="author-procedure">Robotic Hip Replacement</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="carouselPrev" aria-label="Previous">←</button>
+          <div class="carousel-dots" id="carouselDots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <button class="carousel-btn" id="carouselNext" aria-label="Next">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== RESEARCH ==================== -->
+  <section class="section research" id="research">
+    <div class="section-grid-bg"></div>
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <p class="section-tag">Academic Contributions</p>
+        <h2 class="section-heading">Research & <em>Publications</em></h2>
+      </div>
+      <div class="research-stats reveal">
+        <div class="stat"><span class="counter" data-target="42">0</span><small>Publications</small></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="counter" data-target="1850">0</span><small>Citations</small></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="counter" data-target="18">0</span><small>H-Index</small></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="counter" data-target="6">0</span><small>Book Chapters</small></div>
+      </div>
+      <div class="publications-grid">
+        <div class="pub-card reveal">
+          <div class="pub-type">Original Research</div>
+          <h4 class="pub-title">Robotic-Assisted vs Conventional Total Knee Arthroplasty: A 5-Year Follow-Up</h4>
+          <p class="pub-journal">Journal of Bone & Joint Surgery · 2023</p>
+          <div class="pub-meta"><span>📄 Cited 124 times</span></div>
+        </div>
+        <div class="pub-card reveal">
+          <div class="pub-type">Clinical Trial</div>
+          <h4 class="pub-title">PRP Efficacy in Early-Stage Knee Osteoarthritis: Randomised Controlled Trial</h4>
+          <p class="pub-journal">The Lancet Rheumatology · 2022</p>
+          <div class="pub-meta"><span>📄 Cited 89 times</span></div>
+        </div>
+        <div class="pub-card reveal">
+          <div class="pub-type">Review Article</div>
+          <h4 class="pub-title">Minimally Invasive Approaches to Lumbar Disc Herniation: A Systematic Review</h4>
+          <p class="pub-journal">Spine Journal · 2021</p>
+          <div class="pub-meta"><span>📄 Cited 67 times</span></div>
+        </div>
+        <div class="pub-card reveal">
+          <div class="pub-type">Case Series</div>
+          <h4 class="pub-title">Single-Stage Bilateral Hip Replacement in Avascular Necrosis: Outcomes in 120 Patients</h4>
+          <p class="pub-journal">Indian Journal of Orthopaedics · 2020</p>
+          <div class="pub-meta"><span>📄 Cited 45 times</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section class="section contact" id="contact">
+    <div class="section-grid-bg"></div>
+    <div class="section-inner contact-grid">
+      <div class="contact-form-wrap reveal">
+        <p class="section-tag">Get in Touch</p>
+        <h2 class="section-heading">Book a <em>Consultation</em></h2>
+        <form class="contact-form" id="contactForm" onsubmit="return false;">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Full Name</label>
+              <input type="text" id="fname" placeholder="Aryan Mehta" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" placeholder="+91 98765 43210" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="aryan@example.com" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="date">Preferred Date</label>
+              <input type="date" id="date" />
+            </div>
+            <div class="form-group">
+              <label for="concern">Primary Concern</label>
+              <select id="concern">
+                <option value="">Select concern…</option>
+                <option>Joint Pain</option>
+                <option>Sports Injury</option>
+                <option>Spine / Back Pain</option>
+                <option>Fracture / Trauma</option>
+                <option>Second Opinion</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="4" placeholder="Describe your condition or query…"></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-submit">Request Appointment →</button>
+        </form>
+      </div>
+      <div class="contact-info reveal">
+        <div class="info-card">
+          <h3>Clinic Information</h3>
+          <div class="info-row"><span class="info-icon">📍</span><div><strong>Max Super Speciality Hospital</strong><br>Saket, New Delhi 110017</div></div>
+          <div class="info-row"><span class="info-icon">📞</span><div><strong>+91 11 2651 5050</strong><br>Emergency: +91 98765 43210</div></div>
+          <div class="info-row"><span class="info-icon">✉️</span><div>dr.mehta@maxhealthcare.com</div></div>
+        </div>
+        <div class="info-card hours-card">
+          <h3>Consultation Hours</h3>
+          <div class="hours-grid">
+            <span>Mon — Fri</span><span>9:00 AM — 5:00 PM</span>
+            <span>Saturday</span><span>9:00 AM — 1:00 PM</span>
+            <span>Sunday</span><span class="closed">Closed</span>
+            <span>Emergency</span><span class="emergency">24/7 Available</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div class="footer-logo">Dr. A. Mehta <span>MD, FRCS</span></div>
+        <p class="footer-desc">Board-certified orthopedic surgeon specialising in joint replacement, arthroscopy, and sports medicine with 18+ years of experience.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Joint Replacement</a></li>
+          <li><a href="#services">Arthroscopy</a></li>
+          <li><a href="#services">Spine Surgery</a></li>
+          <li><a href="#services">Sports Medicine</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>Max Hospital, Saket</li>
+          <li>+91 11 2651 5050</li>
+          <li>dr.mehta@maxhealthcare.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Dr. Aryan Mehta. All rights reserved.</span>
+    </div>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+  </footer>
 
   <!-- ==================== PANEL OVERLAY ==================== -->
   <div class="overlay" id="overlay"></div>
